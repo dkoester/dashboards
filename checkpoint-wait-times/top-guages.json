@@ -1,0 +1,195 @@
+{
+  "datasource": "InfluxDB",
+  "description": "https://api-prd.mspmac.org/v1.0/security-checkpoint/waittimedisplays",
+  "gridPos": {
+    "h": 11,
+    "w": 24,
+    "x": 0,
+    "y": 0
+  },
+  "id": 2,
+  "options": {
+    "showThresholdMarkers": true,
+    "showThresholdLabels": false,
+    "fieldOptions": {
+      "values": false,
+      "calcs": [
+        "lastNotNull"
+      ],
+      "defaults": {
+        "min": 0,
+        "max": 100,
+        "thresholds": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "value": 20,
+            "color": "#EAB839"
+          },
+          {
+            "color": "red",
+            "value": 35
+          }
+        ],
+        "mappings": [],
+        "unit": "m"
+      },
+      "override": {}
+    },
+    "orientation": "auto"
+  },
+  "pluginVersion": "6.5.2",
+  "targets": [
+    {
+      "alias": "T1PCNORTH",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T1CPNORTH",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T1CPNORTH\" WHERE $timeFilter GROUP BY \"region\"\n",
+      "rawQuery": true,
+      "refId": "A",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T1CPSOUTH",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T1CPSKYWAY",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T1CPSOUTH\" WHERE $timeFilter GROUP BY \"region\"",
+      "rawQuery": true,
+      "refId": "B",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T1CPSKYWAY",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T1CPSOUTH",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T1CPSKYWAY\" WHERE $timeFilter GROUP BY \"region\"\n",
+      "rawQuery": true,
+      "refId": "C",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T2CP1",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T2CP1",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T2CP1\" WHERE $timeFilter GROUP BY \"region\"",
+      "rawQuery": true,
+      "refId": "D",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T2CP2",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T2CP2",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T2CP2\" WHERE $timeFilter GROUP BY \"region\"\n",
+      "rawQuery": true,
+      "refId": "E",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    }
+  ],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "waittimedisplays",
+  "type": "gauge"
+}

@@ -1,0 +1,369 @@
+{
+  "datasource": "InfluxDB",
+  "alert": {
+    "alertRuleTags": {},
+    "conditions": [
+      {
+        "evaluator": {
+          "params": [
+            40
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "and"
+        },
+        "query": {
+          "params": [
+            "A",
+            "2m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "avg"
+        },
+        "type": "query"
+      },
+      {
+        "evaluator": {
+          "params": [
+            40
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "or"
+        },
+        "query": {
+          "params": [
+            "B",
+            "2m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "avg"
+        },
+        "type": "query"
+      },
+      {
+        "evaluator": {
+          "params": [
+            40
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "or"
+        },
+        "query": {
+          "params": [
+            "C",
+            "2m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "avg"
+        },
+        "type": "query"
+      },
+      {
+        "evaluator": {
+          "params": [
+            40
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "or"
+        },
+        "query": {
+          "params": [
+            "D",
+            "2m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "avg"
+        },
+        "type": "query"
+      },
+      {
+        "evaluator": {
+          "params": [
+            40
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "or"
+        },
+        "query": {
+          "params": [
+            "E",
+            "2m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "avg"
+        },
+        "type": "query"
+      }
+    ],
+    "executionErrorState": "keep_state",
+    "for": "2m",
+    "frequency": "1m",
+    "handler": 1,
+    "message": "waittimedisplays is over 10, this might need investigation",
+    "name": "waittimedisplays alert",
+    "noDataState": "keep_state",
+    "notifications": []
+  },
+  "aliasColors": {},
+  "bars": false,
+  "dashLength": 10,
+  "dashes": false,
+  "description": "https://api-prd.mspmac.org/v1.0/security-checkpoint/waittimedisplays",
+  "fill": 1,
+  "fillGradient": 0,
+  "gridPos": {
+    "h": 11,
+    "w": 24,
+    "x": 0,
+    "y": 11
+  },
+  "hiddenSeries": false,
+  "id": 4,
+  "legend": {
+    "alignAsTable": true,
+    "avg": false,
+    "current": true,
+    "max": false,
+    "min": false,
+    "rightSide": true,
+    "show": true,
+    "sort": "current",
+    "sortDesc": true,
+    "total": false,
+    "values": true
+  },
+  "lines": true,
+  "linewidth": 1,
+  "nullPointMode": "null",
+  "options": {
+    "dataLinks": []
+  },
+  "percentage": false,
+  "pointradius": 2,
+  "points": false,
+  "renderer": "flot",
+  "seriesOverrides": [],
+  "spaceLength": 10,
+  "stack": false,
+  "steppedLine": false,
+  "targets": [
+    {
+      "alias": "T1PCNORTH",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T1CPNORTH",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T1CPNORTH\" WHERE $timeFilter GROUP BY \"region\"\n",
+      "rawQuery": true,
+      "refId": "A",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T1CPSKYWAY",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T1CPSKYWAY",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T1CPSKYWAY\" WHERE $timeFilter GROUP BY \"region\"",
+      "rawQuery": true,
+      "refId": "B",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T1CPSOUTH",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T1CPSOUTH",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T1CPSOUTH\" WHERE $timeFilter GROUP BY \"region\"\n",
+      "rawQuery": true,
+      "refId": "C",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T2CP1",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T2CP1",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T2CP1\" WHERE $timeFilter GROUP BY \"region\"",
+      "rawQuery": true,
+      "refId": "D",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    },
+    {
+      "alias": "T2CP2",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        }
+      ],
+      "measurement": "T2CP2",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT \"value\" FROM \"T2CP2\" WHERE $timeFilter GROUP BY \"region\"\n",
+      "rawQuery": true,
+      "refId": "E",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "value"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": []
+    }
+  ],
+  "thresholds": [
+    {
+      "colorMode": "critical",
+      "fill": true,
+      "line": true,
+      "op": "gt",
+      "value": 40,
+      "yaxis": "left"
+    }
+  ],
+  "timeFrom": null,
+  "timeRegions": [],
+  "timeShift": null,
+  "title": "waittimedisplays",
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  },
+  "type": "graph",
+  "xaxis": {
+    "buckets": null,
+    "mode": "time",
+    "name": null,
+    "show": true,
+    "values": []
+  },
+  "yaxes": [
+    {
+      "format": "m",
+      "label": null,
+      "logBase": 1,
+      "max": null,
+      "min": null,
+      "show": true
+    },
+    {
+      "format": "short",
+      "label": null,
+      "logBase": 1,
+      "max": null,
+      "min": null,
+      "show": false
+    }
+  ],
+  "yaxis": {
+    "align": false,
+    "alignLevel": null
+  }
+}
