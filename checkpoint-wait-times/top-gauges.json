@@ -3,7 +3,7 @@
   "description": "https://api-prd.mspmac.org/v1.0/security-checkpoint/waittimedisplays",
   "gridPos": {
     "h": 11,
-    "w": 24,
+    "w": 14,
     "x": 0,
     "y": 0
   },
@@ -25,8 +25,8 @@
             "value": null
           },
           {
-            "value": 20,
-            "color": "#EAB839"
+            "color": "#EAB839",
+            "value": 20
           },
           {
             "color": "red",
