@@ -123,10 +123,14 @@
     "for": "2m",
     "frequency": "1m",
     "handler": 1,
-    "message": "waittimedisplays is over 10, this might need investigation",
+    "message": "This is an FYI alert that /waittimedisplays is over 40, this might need manual overrides on the Checkpoint Display Manager.",
     "name": "waittimedisplays alert",
     "noDataState": "keep_state",
-    "notifications": []
+    "notifications": [
+      {
+        "uid": "6oGkPEyWz"
+      }
+    ]
   },
   "aliasColors": {},
   "bars": false,
@@ -323,8 +327,7 @@
       "fill": true,
       "line": true,
       "op": "gt",
-      "value": 40,
-      "yaxis": "left"
+      "value": 40
     }
   ],
   "timeFrom": null,
